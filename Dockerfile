@@ -37,7 +37,8 @@ RUN mkdir /tmp/Python && \
     make altinstall && \
     rm -rf /tmp/Python && \
     cd && \
-    pip3.6 install jupyter
+    pip3.6 install jupyter && \
+    pip3.6 install pyspark
 
 # Scala install
 RUN curl -Lo coursier https://git.io/coursier-cli && \
