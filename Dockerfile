@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 USER root
 
 RUN apt-get update && \
-    apt-get install -y default-jre \
+    apt-get install -yq --no-install-recommends default-jre \
             default-jdk \
             wget \
             build-essential \
@@ -37,8 +37,7 @@ RUN mkdir /tmp/Python && \
     make altinstall && \
     rm -rf /tmp/Python && \
     cd && \
-    pip3.6 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master && \
-    jupyter contrib nbextension install 
+    pip3.6 install jupyter
 
 # Scala install
 RUN curl -Lo coursier https://git.io/coursier-cli && \
